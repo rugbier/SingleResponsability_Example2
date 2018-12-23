@@ -14,24 +14,6 @@ public class Customer {
         setAge(age);
     }
 
-    public void calculateBill(double tax) {
-        for (Item item : listsOfItems) {
-            bill += item.getPrice();
-        }
-        bill *= (1 + tax);
-        this.setBill(bill);
-    }
-
-    public void generateReport(String reportType) {
-        if(reportType.equalsIgnoreCase("CSV")) {
-            System.out.println("|" + name + "|" + age + "|" + bill + "|");
-        }
-        if(reportType.equalsIgnoreCase("XML")) {
-            System.out.println("<customer><name>" + name + "</name><age>" + age + "</age><bill>" + bill + "</bill></customer>");
-        }
-
-    }
-
     public String getName() {
         return name;
     }

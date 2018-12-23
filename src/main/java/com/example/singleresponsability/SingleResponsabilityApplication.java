@@ -2,6 +2,8 @@ package com.example.singleresponsability;
 
 import com.example.singleresponsability.model.Customer;
 import com.example.singleresponsability.model.Item;
+import com.example.singleresponsability.service.BillCalculator;
+import com.example.singleresponsability.service.ReportGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,9 +25,12 @@ public class SingleResponsabilityApplication {
         Customer customer1 =  new Customer("Jhon", 29);
         customer1.setListsOfItems(itemList);
 
-        customer1.calculateBill(0.21);
-        customer1.generateReport("XML");
-        customer1.generateReport("CSV");
+        BillCalculator calculator = new BillCalculator();
+        calculator.calculateBill(customer1, 0.21);
+
+        ReportGenerator generator = new ReportGenerator();
+        generator.generateReport(customer1, "XML");
+        generator.generateReport(customer1, "CSV");
 
     }
 }
